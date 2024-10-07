@@ -19,12 +19,11 @@ user_id:               int
 country:               varchar
 last_active_date:      datetime
 listening_hours:       int
-sessions:              int
-
+sessions:              int 
 */
 
 
-With active_user as(
+WITH active_user as(
     SELECT country,
         COUNT(user_id)  AS active_user_num
     FROM penetration_analysis
