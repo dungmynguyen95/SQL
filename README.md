@@ -8,6 +8,6 @@ Platform: https://www.stratascratch.com/
 
 |  #  | Title | Difficulty | Solution |
 | ----- | ------------- | ------------- | ------------- |
-| 10369 | [Spotify Penetration Analysis](https://platform.stratascratch.com/coding/10369-spotify-penetration-analysis?code_type=3)  | Hard | [Link] |
+| 10369 | [Spotify Penetration Analysis](https://platform.stratascratch.com/coding/10369-spotify-penetration-analysis?code_type=3)  | Hard | [Link](sql/10369) |
 | Content Cell  | Content Cell  | ------------- | ------------- |
 
