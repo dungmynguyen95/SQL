@@ -20,6 +20,7 @@ country:               varchar
 last_active_date:      datetime
 listening_hours:       int
 sessions:              int 
+
 */
 
 
