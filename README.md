@@ -9,5 +9,5 @@ Platform: https://www.stratascratch.com/
 |  #  | Title | Difficulty | Solution |
 | ----- | ------------- | ------------- | ------------- |
 | 10369 | [Spotify Penetration Analysis](https://platform.stratascratch.com/coding/10369-spotify-penetration-analysis?code_type=3)  | Hard | [Link](sql/10369) |
-| Content Cell  | Content Cell  | ------------- | ------------- |
-
+| 10303  | [Top Percentile Fraud](https://platform.stratascratch.com/coding/10303-top-percentile-fraud?code_type=3)  | Hard | [Link](sql/10303) |
+| 10300 | [Premium vs Freemium](https://platform.stratascratch.com/coding/10300-premium-vs-freemium?code_type=3) | Hard | [Link](sql/10300) |
