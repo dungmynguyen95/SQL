@@ -1,0 +1,36 @@
+/*
+Find the total number of downloads for paying and non-paying users by date. 
+Include only records where non-paying customers have more downloads than paying customers. 
+The output should be sorted by earliest date first and contain 3 columns date, non-paying downloads, paying downloads.
+
+<ms_user_dimension>
+
+user_id:            int
+acc_id:             int
+
+<ms_acc_dimension>
+
+acc_id:             int
+paying_customer:    varchar
+
+<ms_download_facts>
+
+date:               datetime
+user_id:            int
+downloads:          int
+
+*/
+
+SELECT date, 
+    SUM(CASE WHEN paying_customer = "no" THEN downloads END) as non_paying,
+    SUM(CASE WHEN paying_customer = "yes" THEN downloads END) as paying 
+
+FROM ms_acc_dimension as CTE
+JOIN ms_user_dimension as user 
+    ON user.acc_id = CTE.acc_id
+JOIN ms_download_facts as download
+    ON user.user_id = download.user_id
+
+GROUP BY date
+HAVING non_paying > paying
+ORDER BY date
