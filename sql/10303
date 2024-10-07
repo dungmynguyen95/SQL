@@ -8,7 +8,7 @@ state:         varchar
 claim_cost:    int
 fraud_score:   float
 
-/*
+*/
 
 SELECT policy_num, state, claim_cost, fraud_score
 FROM(
