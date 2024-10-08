@@ -1,0 +1,22 @@
+/*
+Find the advertising channel with the smallest maximum yearly spending that still brings in more than 1500 customers each year.
+
+Table:                         uber_advertising
+year:                          int
+advertising_channel:           varchar
+money_spent:                   int
+customers_acquired:            int
+
+*/
+
+WITH data as (
+    SELECT *,
+        MAX(money_spent) OVER (PARTITION BY advertising_channel) as max_spent
+    FROM uber_advertising
+    WHERE customers_acquired >= 1500
+    )
+
+SELECT DISTINCT advertising_channel
+FROM data
+WHERE max_spent = (SELECT MIN(max_spent)
+    FROM data)
