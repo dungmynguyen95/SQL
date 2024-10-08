@@ -15,9 +15,7 @@ WITH data AS (
     SELECT user_id, employer, 
            ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY start_date) AS company_order
     FROM linkedin_users
-    WHERE employer IN ('Microsoft', 'Google')
-    )
-
+    WHERE employer IN ('Microsoft', 'Google'))
 
 SELECT user_id
 FROM data
