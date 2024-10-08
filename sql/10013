@@ -1,7 +1,7 @@
 /*
 Find the advertising channel with the smallest maximum yearly spending that still brings in more than 1500 customers each year.
 
-Table:                         uber_advertising
+<uber_advertising>
 year:                          int
 advertising_channel:           varchar
 money_spent:                   int
