@@ -4,7 +4,7 @@ This repository contains solutions to questions which have been attempted on Str
 
 The practise schedule consists of tackling hard questions.
 Platform: https://www.stratascratch.com/
-# Completed Questions : 15
+# Completed Questions : 20
 
 |  #  | Company |Title | Difficulty | Solution |   
 | ----- | ------------- | ------------- | ------------- | ------------- |  
@@ -23,3 +23,8 @@ Platform: https://www.stratascratch.com/
 | 10013 | Uber | [Positive Ad Channels](https://platform.stratascratch.com/coding/10013-positive-ad-channels?code_type=3) | Hard | [Link](sql/10013) |
 | 9979 | City of San Francisco | [Top 5 highest and least paid employees](https://platform.stratascratch.com/coding/9979-find-the-top-5-highest-paid-and-top-5-least-paid-employees-in-2012?code_type=3) | Hard | [Link](sql/9979) |
 | 9919 | Salesforce | [Unique Highest Salary](https://platform.stratascratch.com/coding/9919-unique-highest-salary?code_type=3) | Hard | [Link](sql/9919) |
+| 9883 | Google | [The oldest survivor per passenger class](https://platform.stratascratch.com/coding/9883-find-the-oldest-survivor-per-passenger-class?code_type=3) | Hard | [Link](sql/9883) |
+| 9822 | Google | [Average number of friends per user](https://platform.stratascratch.com/coding/9822-find-the-average-number-of-friends-a-user-has?code_type=3) | Hard | [Link](sql/9822) |
+| 9637 | Airbnb | [Growth of Airbnb](https://platform.stratascratch.com/coding/9637-growth-of-airbnb?code_type=3) | Hard | [Link](sql/9637) |
+| 2090 | Amazon | [First Day Retention Rate](https://platform.stratascratch.com/coding/2090-first-day-retention-rate?code_type=3)  | Hard | [Link](sql/2090) |
+| 2078 | LinkedIn | [From Microsoft to Google](https://platform.stratascratch.com/coding/2078-from-microsoft-to-google?code_type=3) | Hard | [Link](sql/2078) |
