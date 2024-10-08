@@ -1,0 +1,18 @@
+/*
+Find the average number of friends a user has.
+
+Table: google_friends_network
+
+user_id:          int
+friend_id:        int
+
+*/
+
+SELECT SUM(friend_num)/COUNT(user_id) as avg_friend_num
+FROM (
+    SELECT user_id,
+        COUNT(friend_id) as friend_num
+    FROM google_friends_network
+    GROUP BY user_id) as data
+
+
