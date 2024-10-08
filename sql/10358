@@ -11,7 +11,7 @@ day_name:        varchar
 
 */
 
-SELECT WEEk(date) as week_number_Friday,
+SELECT WEEK(date) as week_number_Friday,
     AVG(amount_spent) as avg_Friday_spent
 FROM user_purchases
 WHERE day_name = "Friday" 
