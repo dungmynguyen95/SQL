@@ -19,5 +19,10 @@ manager_id:                int
 
 */
 
-SELECT MAX(DISTINCT salary)
-FROM employee;
+
+SELECT MAX(salary) as highest_salary
+FROM (
+    SELECT salary
+    FROM employee
+    GROUP BY salary
+    HAVING COUNT(*) = 1) as salary_data
