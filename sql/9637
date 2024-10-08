@@ -1,0 +1,43 @@
+/*
+Estimate the growth of Airbnb each year using the number of hosts registered as the growth metric. 
+The rate of growth is calculated by taking ((number of hosts registered in the current year - number of hosts registered in the previous year) / the number of hosts registered in the previous year) * 100.
+Output the year, number of hosts in the current year, number of hosts in the previous year, and the rate of growth. 
+Round the rate of growth to the nearest percent and order the result in the ascending order based on the year.
+Assume that the dataset consists only of unique hosts, meaning there are no duplicate hosts listed.
+
+Table: airbnb_search_details
+
+id:                      int
+price:                   float
+property_type:           varchar
+room_type:               varchar
+amenities:               varchar
+accommodates:            int
+bathrooms:               int
+bed_type:                varchar
+cancellation_policy:     varchar
+cleaning_fee:            bool
+city:                    varchar
+host_identity_verified:  varchar
+host_response_rate:      varchar
+host_since:              datetime
+neighbourhood:           varchar
+number_of_reviews:       int
+review_scores_rating:    float
+zipcode:                 int
+bedrooms:                int
+beds:                    int
+
+*/
+
+WITH host_over_year as (
+    SELECT
+        DATE_FORMAT(host_since, '%Y') as year,
+        COUNT(id) as curr_count_host,
+        LAG(COUNT(id)) OVER(ORDER BY DATE_FORMAT(host_since, '%Y')) as prev_count_host
+    FROM airbnb_search_details
+    GROUP BY year)
+
+SELECT *,
+    ROUND((curr_count_host - prev_count_host)*100/prev_count_host,0) as growth_rate
+FROM host_over_year
