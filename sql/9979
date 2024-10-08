@@ -1,0 +1,43 @@
+/*
+Find the top 5 highest paid and top 5 least paid employees in 2012.
+Output the employee name along with the corresponding total pay with benefits.
+Sort records based on the total payment with benefits in ascending order.
+
+Table: sf_public_salaries
+
+id:                    int
+employeename:          varchar
+jobtitle:              varchar
+basepay:               float
+overtimepay:           float
+otherpay:              float
+benefits:              float
+totalpay:              float
+totalpaybenefits:      float
+year:                  int
+notes:                 datetime
+agency:                varchar
+status:                varchar
+
+*/
+WITH least_paid as (
+    SELECT employeename, totalpaybenefits, 
+        ROW_NUMBER() OVER (ORDER BY totalpaybenefits) as ranking
+    FROM sf_public_salaries),
+
+top_paid as (
+    SELECT employeename, totalpaybenefits, 
+        ROW_NUMBER() OVER (ORDER BY totalpaybenefits DESC) as ranking
+    FROM sf_public_salaries)
+
+SELECT employeename, totalpaybenefits 
+FROM least_paid
+WHERE ranking <= 5
+
+UNION 
+
+SELECT employeename, totalpaybenefits 
+FROM top_paid
+WHERE ranking <= 5
+
+ORDER BY totalpaybenefits 
