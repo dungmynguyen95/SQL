@@ -20,15 +20,18 @@ agency:                varchar
 status:                varchar
 
 */
+
 WITH least_paid as (
     SELECT employeename, totalpaybenefits, 
         ROW_NUMBER() OVER (ORDER BY totalpaybenefits) as ranking
-    FROM sf_public_salaries),
+    FROM sf_public_salaries
+    WHERE year = 2012),
 
 top_paid as (
     SELECT employeename, totalpaybenefits, 
         ROW_NUMBER() OVER (ORDER BY totalpaybenefits DESC) as ranking
-    FROM sf_public_salaries)
+    FROM sf_public_salaries
+    WHERE year = 2012)
 
 SELECT employeename, totalpaybenefits 
 FROM least_paid
