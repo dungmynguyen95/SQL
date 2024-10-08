@@ -1,0 +1,32 @@
+/*
+Some forecasting methods are extremely simple and surprisingly effective. 
+Naïve forecast is one of them; we simply set all forecasts to be the value of the last observation. 
+Our goal is to develop a naïve forecast for a new metric called "distance per dollar" defined as the (distance_to_travel/monetary_cost) in our dataset and measure its accuracy.
+To develop this forecast,  sum "distance to travel"  and "monetary cost" values at a monthly level before calculating "distance per dollar". 
+This value becomes your actual value for the current month. The next step is to populate the forecasted value for each month. 
+This can be achieved simply by getting the previous month's value in a separate column. Now, we have actual and forecasted values. 
+This is your naïve forecast. Let’s evaluate our model by calculating an error matrix called root mean squared error (RMSE). RMSE is defined as sqrt(mean(square(actual - forecast)). 
+Report out the RMSE rounded to the 2nd decimal spot.
+
+Table: uber_request_logs
+
+request_id:                      int
+request_date:                    datetime
+request_status:                  varchar
+distance_to_travel:              float
+monetary_cost:                   float
+driver_to_client_distance:       float
+
+*/
+
+WITH data as(
+    SELECT 
+        DATE_FORMAT(request_date, '%Y-%m') as month,
+        SUM(distance_to_travel)/SUM(monetary_cost) as cur_distance_value,
+        LAG(SUM(distance_to_travel)/SUM(monetary_cost)) OVER (ORDER BY  DATE_FORMAT(request_date, '%Y-%m')) as prev_distance_value
+    FROM uber_request_logs
+    GROUP BY month)
+
+SELECT 
+    ROUND(SQRT(AVG(POWER(cur_distance_value - prev_distance_value,2))),2) as RMSE
+FROM data
