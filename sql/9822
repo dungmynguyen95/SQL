@@ -8,7 +8,7 @@ friend_id:        int
 
 */
 
-SELECT SUM(friend_num)/COUNT(user_id) as avg_friend_num
+SELECT AVG(friend_num) as avg_friend_num
 FROM (
     SELECT user_id,
         COUNT(friend_id) as friend_num
