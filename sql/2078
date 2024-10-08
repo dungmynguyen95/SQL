@@ -11,3 +11,15 @@ end_date:           datetime
 
 */
 
+WITH data AS (
+    SELECT user_id, employer, 
+           ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY start_date) AS company_order
+    FROM linkedin_users
+    WHERE employer IN ('Microsoft', 'Google')
+    )
+
+
+SELECT user_id
+FROM data
+GROUP BY user_id
+HAVING SUM(CASE WHEN employer = 'Google' THEN company_order END) - SUM(CASE WHEN employer = 'Microsoft' THEN company_order END) = 1
