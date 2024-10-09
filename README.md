@@ -4,7 +4,7 @@ This repository contains solutions to questions which have been attempted on Str
 
 The practise schedule consists of tackling hard questions.
 Platform: https://www.stratascratch.com/
-# Completed Questions : 22
+# Completed Questions : 25
 
 |  #  | Company |Title | Difficulty | Solution |   
 | ----- | ------------- | ------------- | ------------- | ------------- |  
