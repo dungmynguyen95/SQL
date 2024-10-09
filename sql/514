@@ -15,3 +15,21 @@ price:              int
 
 */
 
+WITH ranking_order as (
+    SELECT *,
+        DENSE_RANK() OVER(PARTITION BY user_id ORDER BY created_at) as ranking 
+    FROM marketing_campaign), 
+
+purchase as (
+    SELECT user_id,
+        COUNT(DISTINCT product_id) as count_product
+    FROM marketing_campaign
+    GROUP BY user_id)
+
+SELECT 
+    COUNT(DISTINCT r.user_id) 
+FROM ranking_order as r
+JOIN purchase as p
+    ON r.user_id = p.user_id
+WHERE r.ranking > 1 
+    AND p.count_product > 1
