@@ -8,7 +8,7 @@ Platform: https://www.stratascratch.com/
 
 |  #  | Company |Title | Difficulty | Solution |   
 | ----- | ------------- | ------------- | ------------- | ------------- |  
-| 514  | Amazon | [Marketing Campaign Success](https://platform.stratascratch.com/coding/514-marketing-campaign-success-advanced?code_type=3) | Hard | [Link](sql/514) |
+| 0514  | Amazon | [Marketing Campaign Success](https://platform.stratascratch.com/coding/514-marketing-campaign-success-advanced?code_type=3) | Hard | [Link](sql/514) |
 | 2033 | Uber | [Most Profitable Location](https://platform.stratascratch.com/coding/2033-find-the-most-profitable-location?code_type=3) | Hard | [Link](sql/2033) |
 | 2078 | LinkedIn | [From Microsoft to Google](https://platform.stratascratch.com/coding/2078-from-microsoft-to-google?code_type=3) | Hard | [Link](sql/2078) |
 | 2090 | Amazon | [First Day Retention Rate](https://platform.stratascratch.com/coding/2090-first-day-retention-rate?code_type=3)  | Hard | [Link](sql/2090) |
