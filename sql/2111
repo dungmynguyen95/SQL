@@ -1,0 +1,37 @@
+/*
+
+Write a query to return Territory and corresponding Sales Growth. Compare growth between periods Q4-2021 vs Q3-2021.
+If Territory (say T123) has Sales worth $100 in Q3-2021 and Sales worth $110 in Q4-2021, then the Sales Growth will be 10% [ i.e. = ((110 - 100)/100) * 100 ]
+Output the ID of the Territory and the Sales Growth. Only output these territories that had any sales in both quarters.
+
+<Tables: fct_customer_sales>
+
+cust_id:            varchar
+prod_sku_id:        varchar
+order_date:         datetime
+order_value:        int
+order_id:           varchar
+
+<Tables: map_customer_territory>
+
+cust_id:            varchar
+territory_id:       varchar
+
+*/
+
+WITH CTE as (
+    SELECT territory_id, CONCAT('Q', QUARTER(order_date), '-', YEAR(order_date)) as date,
+        SUM(order_value) as sales_rev
+    FROM fct_customer_sales as sales
+    LEFT JOIN map_customer_territory as terr
+        ON sales.cust_id = terr.cust_id
+    GROUP BY territory_id, date
+    ORDER BY territory_id, date)
+
+SELECT CTE1.territory_id,
+    (CTE2.sales_rev - CTE1.sales_rev)*100/CTE1.sales_rev as sales_growth
+FROM CTE as CTE1
+JOIN CTE as CTE2
+    ON CTE1.territory_id = CTE2.territory_id
+WHERE CTE1.date = 'Q3-2021'
+    AND CTE2.date = 'Q4-2021'
