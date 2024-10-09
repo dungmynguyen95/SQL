@@ -4,12 +4,17 @@ This repository contains solutions to questions which have been attempted on Str
 
 The practise schedule consists of tackling hard questions.
 Platform: https://www.stratascratch.com/
-# Completed Questions : 20
+# Completed Questions : 22
 
 |  #  | Company |Title | Difficulty | Solution |   
 | ----- | ------------- | ------------- | ------------- | ------------- |  
+| 514  | Amazon | [Marketing Campaign Success](https://platform.stratascratch.com/coding/514-marketing-campaign-success-advanced?code_type=3) | Hard | [Link](sql/514) |
+| 2033 | Uber | [Most Profitable Location](https://platform.stratascratch.com/coding/2033-find-the-most-profitable-location?code_type=3) | Hard | [Link](sql/2033) |
 | 2078 | LinkedIn | [From Microsoft to Google](https://platform.stratascratch.com/coding/2078-from-microsoft-to-google?code_type=3) | Hard | [Link](sql/2078) |
 | 2090 | Amazon | [First Day Retention Rate](https://platform.stratascratch.com/coding/2090-first-day-retention-rate?code_type=3)  | Hard | [Link](sql/2090) |
+| 2111 | Amazon | [Sales Growth per Territory](https://platform.stratascratch.com/coding/2111-sales-growth-per-territory?code_type=3) | Hard | [Link](sql/2111) |
+| 2112 | Amazon | [Product Market Share](https://platform.stratascratch.com/coding/2112-product-market-share?code_type=3) | Hard | [Link](sql/2112) |
+| 2165 | Amazon | [Customer Tracking](https://platform.stratascratch.com/coding/2136-customer-tracking?code_type=3) | Hard | [Link](sql/2165) |
 | 9637 | Airbnb | [Growth of Airbnb](https://platform.stratascratch.com/coding/9637-growth-of-airbnb?code_type=3) | Hard | [Link](sql/9637) |
 | 9822 | Google | [Average number of friends per user](https://platform.stratascratch.com/coding/9822-find-the-average-number-of-friends-a-user-has?code_type=3) | Hard | [Link](sql/9822) 
 | 9883 | Google | [The oldest survivor per passenger class](https://platform.stratascratch.com/coding/9883-find-the-oldest-survivor-per-passenger-class?code_type=3) | Hard | [Link](sql/9883) |
