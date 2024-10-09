@@ -1,0 +1,60 @@
+/*
+Write a query to find the Market Share at the Product Brand level for each Territory, for Time Period Q4-2021. 
+Market Share is the number of Products of a certain Product Brand brand sold in a territory, divided by the total number of Products sold in this Territory.
+Output the ID of the Territory, name of the Product Brand and the corresponding Market Share in percentages. 
+Only include these Product Brands that had at least one sale in a given territory.
+
+<Tables: fct_customer_sales>
+
+cust_id:            varchar
+prod_sku_id:        varchar
+order_date:         datetime
+order_value:        int
+order_id:           varchar
+
+<Tables: map_customer_territory>
+
+cust_id:            varchar
+territory_id:       varchar
+
+<Tables: dim_product>
+
+prod_sku_id:        varchar
+prod_sku_name:      varchar
+prod_brand:         varchar
+market_name:        varchar
+
+*/
+
+WITH market_data as (
+    SELECT 
+            territory_id, 
+            prod_brand, 
+            product.prod_sku_id
+    FROM map_customer_territory as terr
+    JOIN fct_customer_sales as sale
+        ON sale.cust_id = terr.cust_id
+    JOIN dim_product as product
+        ON sale.prod_sku_id = product.prod_sku_id
+    WHERE CONCAT('Q',QUARTER(sale.order_date), '-', YEAR(sale.order_date)) = 'Q4-2021'),
+
+count_product as (
+    SELECT territory_id,
+            COUNT(prod_sku_id) as total_product_num
+            FROM market_data
+            GROUP BY territory_id),
+            
+brand_product as (
+    SELECT territory_id, prod_brand,
+        COUNT(prod_sku_id) as brand_product_num
+    FROM market_data
+    GROUP BY territory_id, prod_brand
+    ORDER BY territory_id)
+
+SELECT b.territory_id, b.prod_brand,
+    FORMAT(brand_product_num*100/total_product_num,2) as market_share
+FROM brand_product as b
+JOIN count_product  as c
+    ON b.territory_id = c.territory_id
+WHERE brand_product_num >= 1
+ORDER BY b.territory_id, market_share DESC
